@@ -1,0 +1,32 @@
+# Ignore compiled class files
+*.class
+
+# Ignore package files
+*.jar
+*.war
+*.ear
+
+# Ignore IDE-specific files
+/.idea/
+/*.iml
+/.vscode/
+
+# Ignore build directories
+/build/
+/target/
+
+# Ignore logs and temporary files
+*.log
+*.tmp
+*.out
+
+# Ignore OS-specific files
+.DS_Store
+Thumbs.db
+
+# Ignore dependency caches
+/.mvn/
+/.gradle/
+
+# Ignore generated files
+*.generated
