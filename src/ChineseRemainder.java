@@ -1,26 +1,44 @@
-public class ChineseRemainder {
+public class ChineseRemainder{
 
-    public static int findMinX(int num[], int rem[], int k){
+    public static int modInverse(int a, int m){
 
-        int x = -1;
+        for(int x = 1; x < m; x++){
 
-        while(true){
-            int j;
-            for(j = 0; j < k; j++){
-                if(x % num[j] != rem[j]){
-                    break;
-                }
+            if((a * x) % m == 1){
+
+                return x;
+
             }
-            if (j == k) return x;
-            x++;
         }
+        return 1;
     }
 
-    public static void main(String args[])
-    {
-        int num[] = {3, 4, 5};
+    public static int crt(int[] rem, int[] mod){
+
+        int M = 1;
+
+        for(int i = 0; i < mod.length; i++){
+            M *= mod[i];
+        }
+
+        int result = 0;
+
+        for(int i = 0; i < mod.length; i++){
+
+            int Mi = M / mod[i];
+
+            int yi = modInverse(Mi, mod[i]);
+
+            result += rem[i] * Mi * yi;
+
+        }
+
+        return result % M;
+    }
+
+    public static void main(String[] args) {
         int rem[] = {2, 3, 1};
-        int k = num.length;
-        System.out.println("x is " + findMinX(num, rem, k));
+        int mod[] = {3, 4, 5};
+        System.out.println("x is " + crt(rem, mod));
     }
 }
