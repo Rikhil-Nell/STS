@@ -1,25 +1,25 @@
 public class LongestSequence {
     
-    public static int longestSequenceOfOnes(int n) {
-        if (n == 0) {
-            return 1;  // Flipping a single bit creates a sequence of length 1
+    public static int longestSequenceOfOnes(int n){
+        if (n == 0){
+            return 1;
         }
-        
+
         int maxLength = 0;
         int currentLength = 0;
         int previousLength = 0;
-        
-        while (n != 0) {
-            if ((n & 1) == 1) {
-                currentLength++;  // Count consecutive 1s
-            } else {
-                previousLength = (n & 2) == 0 ? 0 : currentLength;  // Handle flipping
+
+        while(n != 0){
+            if ((n & 1) == 1){
+                currentLength++;
+            }
+            else{
+                previousLength = (n & 2) == 0 ? 0 : currentLength;
                 currentLength = 0;
             }
-            maxLength = Math.max(maxLength, previousLength + currentLength + 1);  // Flip one bit
-            n >>= 1;  // Right shift to process next bit
+            maxLength = Math.max(maxLength, previousLength + currentLength + 1);
+            n >>= 1;
         }
-        
         return maxLength;
     }
     

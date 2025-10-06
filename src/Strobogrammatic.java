@@ -1,20 +1,18 @@
 public class Strobogrammatic {
-    
-    public static boolean isStrobogrammatic(String num){
+
+    public static boolean isStrobogrammatic(String n){
         String pairs = "00 11 88 69 96";
 
-        int left = 0, right = num.length() - 1;
+        int left = 0, right = n.length() - 1;
 
         while(left <= right){
-            String pair = "" + num.charAt(left) + num.charAt(right);
-            
-            if(!pairs.contains(pair)){
+            String pair = "" + n.charAt(left) + n.charAt(right);
+            if (!pairs.contains(pair)){
                 return false;
             }
             left++;
             right--;
         }
-
         return true;
     }
 
